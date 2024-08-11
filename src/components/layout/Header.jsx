@@ -32,6 +32,7 @@ import {
   setIsSearch,
 } from "../../redux/reducers/misc";
 import { resetNotificationCount } from "../../redux/reducers/chat";
+import styles from "../styles/App.module.css";
 
 const SearchDialog = lazy(() => import("../specific/Search"));
 const NotificationDialog = lazy(() => import("../specific/Notifications"));
@@ -78,7 +79,7 @@ const Header = () => {
         <AppBar
           position="static"
           sx={{
-            bgcolor: "#acb0b9",
+            backgroundImage: "linear-gradient(45deg,rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%)"
           }}
         >
           <Toolbar>
@@ -89,6 +90,8 @@ const Header = () => {
               }}
             >
               Synchronous
+
+              <span className={ styles.blueTag}>Blue</span>
             </Typography>
 
             <Box

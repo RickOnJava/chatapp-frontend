@@ -18,6 +18,8 @@ import { VisuallyHiddenInput } from "../components/styles/StyledComponents";
 import { server } from "../constants/config";
 import { userExists } from "../redux/reducers/auth";
 import { usernameValidator } from "../utils/validators";
+import styles from "../components/styles/App.module.css";
+import { Typewriter } from "react-simple-typewriter";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -113,9 +115,10 @@ const Login = () => {
 
   return (
     <div
-      style={{
-        backgroundImage: "linear-gradient(rgb(255 225 209),rgb(249 159 159))",
-      }}
+    className={styles.backgroundDiv}
+    style={{
+      padding: isLogin?"none":"7rem 0 7rem",
+    }}
     >
       <Container
         component={"main"}
@@ -128,17 +131,30 @@ const Login = () => {
         }}
       >
         <Paper
-          elevation={3}
           sx={{
+            width:"100rem",    // i extra add this
             padding: 4,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            backgroundColor: "linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 247, 251) 100%)",           
+            border: "5px solid rgb(255, 255, 255)",
+            boxShadow: "rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px",
+            borderRadius: "40px",
           }}
         >
           {isLogin ? (
             <>
-              <Typography variant="h5">Login</Typography>
+             
+              <span className={styles.login}>Login</span>
+              <div className={styles.typeEffectDiv}><Typewriter
+              words={['Hello, Users', 'Welcome to Synchronous', 'Enjoy your stay!']}
+              loop={0}
+              cursorStyle="_"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+              /></div>
               <form
                 style={{
                   width: "100%",
@@ -146,7 +162,7 @@ const Login = () => {
                 }}
                 onSubmit={handleLogin}
               >
-                <TextField
+                {/* <TextField
                   required
                   fullWidth
                   label="Username"
@@ -154,9 +170,49 @@ const Login = () => {
                   variant="outlined"
                   value={username.value}
                   onChange={username.changeHandler}
-                />
+                /> */}
 
-                <TextField
+                {/* <input 
+                type="text"
+                placeholder="Username"
+                value={username.value} 
+                onChange={username.changeHandler} 
+                required 
+                className={styles.username}
+                />
+                <input 
+                type="password"
+                placeholder="Password"
+                value={password.value} 
+                onChange={password.changeHandler} 
+                required 
+                className={styles.password}
+                /> */}
+
+                <div className={styles.inputContainer}>
+                  <input
+                    type="text"
+                    value={username.value}
+                    onChange={username.changeHandler}
+                    required
+                  />
+                  <label >
+                    Enter The Username
+                  </label>
+                </div>
+                <div className={styles.inputContainer}>
+                  <input
+                    type="password"
+                    value={password.value}
+                    onChange={password.changeHandler}
+                    required
+                  />
+                  <label >
+                    Enter The Password
+                  </label>
+                </div>
+
+                {/* <TextField
                   required
                   fullWidth
                   label="Password"
@@ -165,9 +221,13 @@ const Login = () => {
                   variant="outlined"
                   value={password.value}
                   onChange={password.changeHandler}
-                />
+                /> */}
 
-                <Button
+                <button className={styles.loginButton} type="submit" disabled={isLoading}>
+                  Login
+                </button>
+
+                {/* <Button
                   sx={{
                     marginTop: "1rem",
                   }}
@@ -178,25 +238,28 @@ const Login = () => {
                   disabled={isLoading}
                 >
                   Login
-                </Button>
+                </Button> */}
 
-                <Typography textAlign={"center"} m={"1rem"}>
+                <Typography textAlign={"center"} m={"1rem"} color={"rgb(170, 170, 170)"}>
                   OR
                 </Typography>
 
-                <Button
+                {/* <Button
                   disabled={isLoading}
                   variant="text"
                   onClick={toggleLogin}
                   fullWidth
                 >
                   Sign Up Instead
-                </Button>
+                </Button> */}
+                <button className={styles.signup} onClick={toggleLogin} disabled={isLoading}>
+                  Sign Up Free
+                </button>
               </form>
             </>
           ) : (
             <>
-              <Typography variant="h5">Sign Up</Typography>
+              <span className={styles.login}>Sign Up</span>
               <form
                 style={{
                   width: "100%",
@@ -204,7 +267,7 @@ const Login = () => {
                 }}
                 onSubmit={handleSignup}
               >
-                <Stack position={"relative"} width={"10rem"} margin={"auto"}>
+                <Stack position={"relative"} width={"10rem"} margin={"auto"} >
                   <Avatar
                     sx={{
                       width: "10rem",
@@ -249,7 +312,7 @@ const Login = () => {
                   </IconButton>
                 </Stack>
 
-                <TextField
+                {/* <TextField
                   required
                   fullWidth
                   label="Enter Your Name"
@@ -257,9 +320,20 @@ const Login = () => {
                   variant="outlined"
                   value={name.value}
                   onChange={name.changeHandler}
-                />
+                /> */}
+                <div className={styles.inputContainer}>
+                  <input
+                    type="text"
+                    value={name.value}
+                    onChange={name.changeHandler}
+                    required
+                  />
+                  <label >
+                    Enter Your Name
+                  </label>
+                </div>
 
-                <TextField
+                {/* <TextField
                   required
                   fullWidth
                   label="Bio"
@@ -267,9 +341,20 @@ const Login = () => {
                   variant="outlined"
                   value={bio.value}
                   onChange={bio.changeHandler}
-                />
+                /> */}
+                <div className={styles.inputContainer}>
+                  <input
+                    type="text"
+                    value={bio.value}
+                    onChange={bio.changeHandler}
+                    required
+                  />
+                  <label >
+                    Enter a Bio
+                  </label>
+                </div>
 
-                <TextField
+                {/* <TextField
                   required
                   fullWidth
                   label="Username"
@@ -277,15 +362,26 @@ const Login = () => {
                   variant="outlined"
                   value={username.value}
                   onChange={username.changeHandler}
-                />
+                /> */}
+                <div className={styles.inputContainer}>
+                  <input
+                    type="text"
+                    value={username.value}
+                    onChange={username.changeHandler}
+                    required
+                  />
+                  <label >
+                    Enter The Username
+                  </label>
+                </div>
 
                 {username.error && (
                   <Typography color="error" variant="caption">
-                    {username.error}
+                    {/* {username.error} */} 
                   </Typography>
                 )}
 
-                <TextField
+                {/* <TextField
                   required
                   fullWidth
                   label="Password"
@@ -294,9 +390,20 @@ const Login = () => {
                   variant="outlined"
                   value={password.value}
                   onChange={password.changeHandler}
-                />
+                /> */}
+                <div className={styles.inputContainer}>
+                  <input
+                    type="password"
+                    value={password.value}
+                    onChange={password.changeHandler}
+                    required
+                  />
+                  <label >
+                    Create a new Password
+                  </label>
+                </div>
 
-                <Button
+                {/* <Button
                   sx={{
                     marginTop: "1rem",
                   }}
@@ -307,20 +414,27 @@ const Login = () => {
                   disabled={isLoading}
                 >
                   Sign Up
-                </Button>
+                </Button> */}
 
-                <Typography textAlign={"center"} m={"1rem"}>
+                <button className={styles.loginButton} type="submit" disabled={isLoading}>
+                  Sign Up
+                </button>
+
+                <Typography textAlign={"center"} m={"1rem"} color={"rgb(170, 170, 170)"}>
                   OR
                 </Typography>
 
-                <Button
+                {/* <Button
                   disabled={isLoading}
                   variant="text"
                   onClick={toggleLogin}
                   fullWidth
                 >
                   Login Instead
-                </Button>
+                </Button> */}
+                <button className={styles.signup} onClick={toggleLogin} disabled={isLoading}>
+                  Login Instead
+                </button>
               </form>
             </>
           )}

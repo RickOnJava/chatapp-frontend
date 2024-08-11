@@ -4,18 +4,19 @@ import { Box, Typography } from "@mui/material";
 import { grayColor } from "../constants/color";
 import styles from "../components/styles/App.module.css";
 import { Player } from '@lottiefiles/react-lottie-player';
+import { Typewriter } from "react-simple-typewriter";
 
 const Home = () => {
   return (
     <Box bgcolor={grayColor} height={"100%"}>
-      <Typography p={"2rem"} variant="h5" textAlign={"center"}>
-        Select a friend to chat
+      <Typography p={"3rem"} variant="h5" textAlign={"center"}>
+        {/* select a friend to chat */}
       </Typography>
 
       <div className={styles.container}>
         Welcome to the
         <span
-          style={{ color: "#1808be", marginLeft: "10px", fontWeight: "bolder" }}
+          style={{ color: "rgb(16, 137, 211)", marginLeft: "10px", fontWeight: "bolder" }}
         >
           Synchronous
         </span>
@@ -32,6 +33,15 @@ const Home = () => {
       >
         A Real Time Chat App
       </div>
+
+      <div className={styles.homeTypeEffectDiv}><Typewriter
+              words={['Heyy, Users', 'Welcome to Synchronous Blue', 'We Want to notify you that', 'Our app is still under Development Process', 'So any interruptions can be occured at any moment', 'Just contact me to resolve this', 'And please do not use any abusive or slag languages', 'otherwise your account will be banned permanently', 'Thank You']}
+              loop={0}
+              cursorStyle="_"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+              /></div>
 
       <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: "7rem" }}>
       <Player

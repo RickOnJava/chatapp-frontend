@@ -32,12 +32,14 @@ import { setIsFileMenu } from "../redux/reducers/misc";
 import { removeNewMessagesAlert } from "../redux/reducers/chat";
 import { TypingLoader } from "../components/layout/Loaders";
 import { useNavigate } from "react-router-dom";
+import styles from "../components/styles/App.module.css";
+
 
 const Chat = ({ chatId, user }) => {
   const socket = getSocket();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   const containerRef = useRef(null);
   const bottomRef = useRef(null);
 
@@ -188,11 +190,12 @@ const Chat = ({ chatId, user }) => {
         padding={"1rem"}
         spacing={"1rem"}
         // bgcolor={grayColor}
-        bgcolor={"#f0f0e6"}
-        height={"90%"}
+        // bgcolor={"#f0f0e6"}
+        height={"85%"}    // i have vhande to 85 from 90
         sx={{
           overflowX: "hidden",
           overflowY: "auto",
+          backgroundImage: "linear-gradient(180deg, rgba(212, 222, 237, 1) 0%, #c4f2f9 50%, rgba(173, 225, 232, 1) 100%)"
         }}
       >
         {allMessages.map((i) => (
@@ -206,7 +209,7 @@ const Chat = ({ chatId, user }) => {
 
       <form
         style={{
-          height: "10%",
+          height: "15%",   // 15 from 10
         }}
         onSubmit={submitHandler}
       >
@@ -216,7 +219,8 @@ const Chat = ({ chatId, user }) => {
           padding={"1rem"}
           alignItems={"center"}
           position={"relative"}
-          bgcolor={"#f0f0e6"} // Extra added by me
+          sx={{background: "rgba(173,225,232,1) 100%"}}
+          justifyContent={"space-between"}// Extra added by me
         >
           <IconButton
             sx={{
@@ -230,12 +234,15 @@ const Chat = ({ chatId, user }) => {
           </IconButton>
 
           <InputBox
-            placeholder="Type message here..."
+            placeholder="Type message here ..."
             value={message}
             onChange={messageOnChange}
+            sx={{
+              maxWidth: "80%"   // added extra
+            }}
           />
 
-          <IconButton
+          {/* <IconButton
             type="submit"
             sx={{
               // rotate: "-30deg",
@@ -249,7 +256,27 @@ const Chat = ({ chatId, user }) => {
             }}
           >
             <SendIcon />
-          </IconButton>
+          </IconButton> */}
+
+          <button className={styles.sendButton} type="submit">
+            <div >
+              <div className={styles.wrapper}>
+                <svg
+                  height="24"
+                  width="24"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <span>Send</span>
+          </button>
         </Stack>
       </form>
 

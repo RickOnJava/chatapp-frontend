@@ -16,6 +16,7 @@ import {
   useGetNotificationsQuery,
 } from "../../redux/api/api";
 import { setIsNotification } from "../../redux/reducers/misc";
+import styles from "../styles/App.module.css";
 
 const Notifications = () => {
   const { isNotification } = useSelector((state) => state.misc);
@@ -39,7 +40,8 @@ const Notifications = () => {
   return (
     <Dialog open={isNotification} onClose={closeHandler}>
       <Stack p={{ xs: "1rem", sm: "2rem" }} maxWidth={"30rem"}>
-        <DialogTitle>Notifications</DialogTitle>
+        {/* <DialogTitle>Notifications</DialogTitle> */}
+        <span className={styles.notificationTitle}>Notifications</span>
 
         {isLoading ? (
           <Skeleton />

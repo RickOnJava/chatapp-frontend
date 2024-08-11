@@ -20,9 +20,9 @@ const MessageComponent = ({ message, user }) => {
         
         style={{
             alignSelf: sameSender ? "flex-end" : "flex-start",
-            backgroundColor: "white",
+            backgroundColor: sameSender ? "rgba(151, 195, 255, 1)" : "rgb(115 205 218)",
             color: "black",
-            borderRadius: "5px",
+            borderRadius: "10px",
             padding: "0.5rem",
             width: "fit-content",
         }}>

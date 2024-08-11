@@ -70,7 +70,7 @@ const FileMenu = ({ anchorE1, chatId }) => {
           width: "10rem",
         }}
       >
-        <MenuList>
+        <MenuList >
           <MenuItem onClick={selectImage}>
             <Tooltip title="Image">
               <ImageIcon />

@@ -1,14 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 .container {
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    margin: auto;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column;
   }
-  
-  @media (max-width: 1200px) {
-    .container {
-      flex-direction: column;
-    }
-  }
+}
+
+.blueTag{
+  font-family: Dancing Script;
+  margin-left: 1rem;
+}
+
+.login {
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
+  color: rgb(16, 137, 211);
+  font-family: poppins;
+}
+.newGroupTitle {
+  text-align: center;
+  font-weight: 500;
+  font-size: 30px;
+  color: rgb(16, 137, 211);
+  font-family: poppins;
+}
+.findPeopleTitle {
+  text-align: center;
+  font-weight: 500;
+  font-size: 25px;
+  color: rgb(16, 137, 211);
+  font-family: poppins;
+}
+.notificationTitle {
+  margin-bottom: 2rem;
+  text-align:center;
+  font-weight: 400;
+  font-size: 25px;
+  color: rgb(16, 137, 211);
+  font-family: poppins;
+}
+
+.typeEffectDiv{
+  padding: 1rem;
+  height: 2rem;
+  font-family: poppins;
+  font-size: 1rem;
+}
+.homeTypeEffectDiv{
+  margin-top: 2rem;
+  padding: 1rem;
+  height: 2rem;
+  font-family: poppins;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputContainer {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 40px 0;
+}
+
+.inputContainer input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 1px solid #b0a7a7;
+  outline: none;
+  border-radius: 40px;
+  font-size: 1em;
+  color: black;
+  padding: 0 25px 0 35px;
+}
+
+.inputContainer label {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: rgb(170, 170, 170);
+  pointer-events: none;
+  transition: 0.5s;
+}
+.inputContainer input:focus ~ label,
+.inputContainer input:valid ~ label {
+  font-size: 0.8em;
+  top: -13px;
+  left: 17px;
+}
+.inputContainer input:focus ~ label,
+.inputContainer input:valid ~ label {
+  font-size: 0.8em;
+  top: -13px;
+  left: 17px;
+}
+
+.backgroundDiv {
+  background-color: #e8e8e8;
+}
+
+
+.signup {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  color: rgb(16, 137, 211);
+  padding-block: 15px;
+  margin: 20px auto;
+  border-radius: 20px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+.loginButton {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  background: linear-gradient(
+    45deg,
+    rgb(16, 137, 211) 0%,
+    rgb(18, 177, 209) 100%
+  );
+  color: white;
+  padding-block: 15px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+.signup:hover {
+  transform: scale(1.03);
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+}
+.signup:active {
+  transform: scale(0.95);
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+}
+.loginButton:hover {
+  transform: scale(1.03);
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+}
+.loginButton:active {
+  transform: scale(0.95);
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+}
+
+/* From Uiverse.io by Saad3092003 */ 
+.sendButton {
+  font-family: inherit;
+  font-size: 18px;
+  background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+  color: white;
+  padding: 0.8em 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
+
+.sendButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  padding: 0em;
+  background: linear-gradient(to bottom, #5bd9ec 0%,#97c3ff 100%);
+  cursor: pointer;
+}
+
+.sendButton:active {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.sendButton span {
+  display: block;
+  margin-left: 0.4em;
+  transition: all 0.3s;
+}
+
+.sendButton:hover span {
+  scale: 0;
+  font-size: 0%;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.sendButton svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+  transition: all 0.3s;
+}
+
+.sendButton .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s;
+}
+
+.sendButton:hover .wrapper {
+  background-color: rgba(43, 169, 228, 0.897);
+  width: 54px;
+  height: 54px;
+}
+
+.sendButton:hover svg {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  transform: rotate(45deg);
+}
+

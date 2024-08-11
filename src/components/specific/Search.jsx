@@ -17,6 +17,7 @@ import {
   useSendFriendRequestMutation,
 } from "../../redux/api/api";
 import { useAsyncMutation } from "../../hooks/hook";
+import styles from "../styles/App.module.css"
 
 const Search = () => {
   const { isSearch } = useSelector((state) => state.misc);
@@ -53,9 +54,10 @@ const Search = () => {
 
   return (
     <Dialog open={isSearch} onClose={searchCloseHandler}>
-      <Stack p={"2rem"} direction={"column"} width={{ xs: "20rem", sm: "25rem"}}>
-        <DialogTitle textAlign={"center"}>Find People</DialogTitle>
-        <TextField
+      <Stack p={"2rem"} direction={"column"} width={{ xs: "17rem", sm: "25rem"}}>
+        {/* <DialogTitle textAlign={"center"}>Find People</DialogTitle> */}
+        <span className={styles.findPeopleTitle}>Find People</span>
+        {/* <TextField
           label=""
           value={search.value}
           onChange={search.changeHandler}
@@ -68,9 +70,17 @@ const Search = () => {
               </InputAdornment>
             ),
           }}
-        />
+        /> */}
+        <div className={styles.inputContainer}>
+          <input
+            value={search.value}
+            onChange={search.changeHandler}
+            required
+          />
+          <label>Search Users</label>
+        </div>
 
-        <List>
+        <List >
           {users.map((i) => (
             <UserItem
               user={i}

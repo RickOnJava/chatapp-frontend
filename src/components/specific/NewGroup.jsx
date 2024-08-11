@@ -9,7 +9,6 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import { sampleUsers } from "../../constants/sampleData";
 import UserItem from "../shared/UserItem";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -19,6 +18,7 @@ import {
 import { useAsyncMutation, useErrors } from "../../hooks/hook";
 import { setIsNewGroup } from "../../redux/reducers/misc";
 import toast from "react-hot-toast";
+import styles from "../styles/App.module.css";
 
 const NewGroup = () => {
   const { isNewGroup } = useSelector((state) => state.misc);
@@ -71,22 +71,31 @@ const NewGroup = () => {
     <Dialog onClose={closeHandler} open={isNewGroup}>
       <Stack
         p={{ xs: "1rem", sm: "3rem" }}
-        width={{ xs: "20rem", sm: "25rem" }} // I have made a change because in mobile it is not good looking
+        width={{ xs: "16rem", sm: "25rem" }} // I have made a change because in mobile it is not good looking
         spacing={"1.5rem"}
       >
-        <DialogTitle textAlign={"center"} variant="h4">
+        {/* <DialogTitle textAlign={"center"} variant="h4">
           New Group
-        </DialogTitle>
+        </DialogTitle> */}
+        <span className={styles.newGroupTitle}>New Group</span>
 
-        <TextField
+        {/* <TextField
           label="Group Name"
           value={groupName.value}
           onChange={groupName.changeHandler}
-        />
+        /> */}
+        <div className={styles.inputContainer}>
+          <input
+            value={groupName.value}
+            onChange={groupName.changeHandler}
+            required
+          />
+          <label>Group Name</label>
+        </div>
 
         <Typography variant="body1">Select Members</Typography>
 
-        <Stack>
+        <Stack maxHeight={"16rem"} overflow={"auto"}>
           {isLoading ? (
             <Skeleton />
           ) : (
@@ -101,23 +110,37 @@ const NewGroup = () => {
           )}
         </Stack>
 
-        <Stack direction={"row"} justifyContent={"space-evenly"}>
-          <Button
-            variant="text"
-            color="error"
-            size="large"
-            onClick={closeHandler}
-          >
-            Cancel
-          </Button>
-          <Button
+        <Stack direction={"column"} justifyContent={"space-evenly"}>
+          {/* <Button
             variant="contained"
             size="large"
             onClick={submitHandler}
             disabled={isLoadingNewGroup}
           >
             Create
-          </Button>
+          </Button> */}
+          <button
+            className={styles.loginButton}
+            onClick={submitHandler}
+            disabled={isLoadingNewGroup}
+          >
+            Create Group
+          </button>
+          {/* <Button
+            variant="text"
+            color="error"
+            size="large"
+            onClick={closeHandler}
+          >
+            Cancel
+          </Button> */}
+          <button
+            className={styles.signup}
+            onClick={closeHandler}
+            style={{ margin: "0" }}
+          >
+            Cancel
+          </button>
         </Stack>
       </Stack>
     </Dialog>
